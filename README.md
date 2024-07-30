@@ -100,6 +100,8 @@ Perform a system update to address security vulnerabilities and improve stabilit
 $ sudo dnf update -y
 ```
 
+Reboot the machine to apply the updates and log-in via SSH using the administrative user account.
+
 ### Securing the server with a Firewall
 
 A properly configured firewall is essential for restricting unauthorized access to your server. Here, we install and enable the firewalld service. We'll configure specific firewall rules in a later section. In my case, I also removed the rules that enables communication for the Cockpit service.
