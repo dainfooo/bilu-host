@@ -62,7 +62,7 @@ Configure the SSH deamon to disallow the root user login:
 For extra security measurement, remove the root ability to access the shell
 
 ```console
-$ sudo usermod --shell /sbin/nologin root
+# usermod --shell /sbin/nologin root
 ```
 
 Reboot the machine and log-in via SSH using the newly created administrative user.
