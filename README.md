@@ -55,7 +55,7 @@ Configure the SSH deamon to disallow the root user login:
 
 ```console
 # vi /etc/ssh/sshd_config
-// locate the line "PermitRootLogin Yes" and change it to "PermitRootLogin No" (uncomment the line if it's commented)
+// locate the line "PermitRootLogin yes" and change it to "PermitRootLogin no"
 # systemctl restart sshd
 ```
 
