@@ -155,6 +155,21 @@ $ systemctl --user enable podman.socket
 $ systemctl --user start podman.socket
 ```
 
+### Installing HashiCorp Nomad
+
+```console
+// just to make sure it's installed (by default should be installed on Hostinger's default installation)
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+sudo yum -y install nomad
+```
+
+Checkk installation with:
+
+```console
+nomad -v
+```
+
 ### Installing Traefik
 
 Since traefik needs to listen the podman.socker, it's better to install it with the podman user for a more easy set-up. This will be the only service that will share a user, all other services will have it's own user.
