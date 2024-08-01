@@ -170,6 +170,42 @@ Checkk installation with:
 nomad -v
 ```
 
+Configure:
+
+```console
+sudo tee /etc/nomad.d/nomad.hcl <<'EOF'
+name       = "bilu-host"
+region     = "br"
+datacenter = "bilu-dc"
+data_dir   = "/opt/nomad/data"
+bind_addr  = "93.127.212.100"
+
+server {
+  enabled          = true
+  bootstrap_expect = 1
+}
+
+client {
+  enabled = true
+  servers = ["93.127.212.100"]
+}
+
+log_level = "INFO"
+log_file  = "/var/log/nomad.log"
+EOF
+```
+
+```console
+sudo firewall-cmd --permanent --add-port=4646/tcp
+sudo firewall-cmd --reload
+```
+
+```console
+sudo systemctl enable nomad
+sudo systemctl start nomad
+```
+
+
 ### Installing Traefik
 
 Since traefik needs to listen the podman.socker, it's better to install it with the podman user for a more easy set-up. This will be the only service that will share a user, all other services will have it's own user.
