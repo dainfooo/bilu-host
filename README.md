@@ -1,6 +1,6 @@
-# Bilú Host Development Server on Hostinger - An Opinionated Tutorial
+# Bilú Host - A Single Node Hashicorp Nomad on Hostinger - An Opinionated Tutorial
 
-This tutorial provides a step-by-step guide for setting up Rocky Linux 9 on a Hostinger VPS, tailored for development. It emphasises balancing security and usability based on best practices, covering essential tasks such as system updates, user management, and initial setup. Additionally, it includes the configuration of several services through containers using Podman, as of the open-source development environment manager Coder (https://coder.com/), Prometheus and Grafana.
+This tutorial provides a step-by-step guide for setting up Rocky Linux 9 on a Hostinger VPS, tailored for staging and small production workloads. It emphasises balancing security and usability based on best practices, covering essential tasks such as user management, system updates, and initial setup. Additionally, it includes the configuration of several services through containers using Podman and HashiCorp Nomad as the container orchestration tool.
 
 ## Prerequisites
 
@@ -12,6 +12,10 @@ Before starting this tutorial, ensure you have the following:
 - Access to a Terminal and SSH Client: You will need a terminal with ssh client to connect to your VPS and run commands. Tools like PuTTY (for Windows) or a built-in terminal (for macOS/Linux) will work.
 - A Domain Name (Optional): If you plan to access the server via domain name, ensure you have a domain registered and configured to point to your VPS.
 
+## Why Hostinger?
+
+Hostinger's VPS plans offer a cost-effective balance of performance, ideal for projects with budget considerations (like mine).
+
 ## Why Rocky Linux 9?
 
 Rocky Linux 9 is a stable, secure OS designed for server environments, offering enterprise-grade security features. Fully compatible with Red Hat Enterprise Linux, it ensures seamless transition and integration. Community-developed for transparency and trustworthiness, it provides long-term support with regular updates and patches. Free to use, it reduces costs without compromising quality. Its familiarity to RHEL administrators (like me) makes it a preferred choice.
@@ -20,9 +24,9 @@ Rocky Linux 9 is a stable, secure OS designed for server environments, offering 
 
 Podman is an advanced, daemon-less container engine that offers a secure and efficient way to manage containers. Unlike Docker, Podman runs containers by default as non-root users, enhancing the security by reducing the attack surface. It is fully compatible with OCI (Open Container Initiative) standards, ensuring interoperability with other container tools and ecosystems. Its lightweight and modular architecture fits well with the needs of a versatile and secure server setup, such as the one outlined in this tutorial.
 
-## Why Hostinger?
+## Why HashiCorp Nomad?
 
-Hostinger's VPS plans offer a cost-effective balance of performance, ideal for projects with budget considerations (like mine).
+HashiCorp Nomad is a flexible, enterprise-grade scheduler that can deploy and manage applications on single-node, multi-node, and multi-cluster environments. It efficiently handles containerised, non-containerised, and batch applications together. Easy to deploy and use with a single binary, it integrates well with other HashiCorp tools described in this tutorial, such as Consul and Vault, for service discovery and secrets management.
 
 ## Why Bilú?
 
@@ -159,10 +163,9 @@ $ systemctl --user start podman.socket
 
 ```console
 // just to make sure it's installed (by default should be installed on Hostinger's default installation)
-sudo yum install -y yum-utils
-sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
-sudo yum -y install nomad
-sudo yum -y install nomad-driver-podman
+$ sudo dnf install -y dnf-plugins-core
+$ sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+sudo yum -y install nomad nomad-driver-podman
 ```
 
 Checkk installation with:
