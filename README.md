@@ -191,6 +191,12 @@ client {
   servers = ["93.127.212.100"]
 }
 
+plugin "nomad-driver-podman" {
+  config {
+    socket_path = "unix:///run/podman/podman.sock"
+  }
+} 
+
 log_level = "INFO"
 log_file  = "/var/log/nomad.log"
 EOF
