@@ -12,7 +12,7 @@ Before starting this tutorial, ensure you have the following:
 - Access to a Terminal and SSH Client: You will need a terminal with ssh client to connect to your VPS and run commands. Tools like PuTTY (for Windows) or a built-in terminal (for macOS/Linux/Windows) will work.
 - A Domain Name (Optional): If you plan to access the server via a domain name, ensure you have a domain registered and configured to point to your VPS.
 
-## Why these techical choices?
+## Why these technical choices?
 
 ### Hostinger
 
@@ -24,19 +24,19 @@ Rocky Linux 9 is a stable, secure OS designed for server environments, offering 
 
 ### Podman
 
-Podman is an advanced, daemon-less container engine that offers a secure and efficient way to manage containers. Unlike Docker, Podman runs containers by default as non-root users, enhancing the security by reducing the attack surface. It is fully compatible with OCI (Open Container Initiative) standards, ensuring interoperability with other container tools and ecosystems. Its lightweight and modular architecture fits well with the needs of a versatile and secure server setup, such as the one outlined in this tutorial.
+Podman is an advanced, daemon-less container engine that offers a secure and efficient way to manage containers. Unlike Docker, Podman runs containers by default as non-root users, enhancing security by reducing the attack surface. It is fully compatible with OCI (Open Container Initiative) standards, ensuring interoperability with other container tools and ecosystems. Its lightweight and modular architecture fits well with the needs of a versatile and secure server setup, such as the one outlined in this tutorial.
 
 ### HashiCorp Nomad
 
-HashiCorp Nomad is a flexible, enterprise-grade scheduler that can deploy and manage applications on single-node, multi-node, and multi-cluster environments. It efficiently handles containerised, non-containerised, and batch applications together. Easy to deploy and use with a single binary, it integrates well with other HashiCorp tools described in this tutorial, such as Consul and Vault, for service discovery and secrets management.
+HashiCorp Nomad is a flexible, enterprise-grade scheduler that can deploy and manage applications in single-node, multi-node, and multi-cluster environments. It efficiently handles containerized, non-containerized, and batch applications together. Easy to deploy and use with a single binary, it integrates well with other HashiCorp tools described in this tutorial, such as Consul and Vault, for service discovery and secrets management.
 
 ## Why Bilú?
 
-Bilú Gabriel was the late companion dog of the author's family, a Belgian Shepherd, it lived a long life of 14 years and 3 months. His family loved him so much and still continues to love. This server will go to production with his name on it as a tribute to him.
+Bilú Gabriel was the late companion dog of the author's family, a Belgian Shepherd. It lived a long life of 14 years and 3 months. His family loved him so much and still continues to love him. This server will go to production with his name on it as a tribute to him.
 
 ## What Hostinger VPS plan is used?
 
-The Hostinger VPS plan used in the live run of this tutorial is a KVM 8 plan, wich in a nutshell is a 32GB RAM, 400GB DISK and 8 vCPUs VPS, since it's the highest VPS plan currently available on Hostinger.
+The Hostinger VPS plan used in the live run of this tutorial is a KVM 8 plan, which, in a nutshell, is a 32GB RAM, 400GB DISK and 8 vCPUs VM. Since it's the highest VPS plan currently available on Hostinger, it provides a reasonable amount of compute power for the type of workloads that will run on the server.
 
 **Disclaimer**: This guide reflects my specific needs, knowledge, and experience. Individual user requirements may necessitate additional configurations.
 
