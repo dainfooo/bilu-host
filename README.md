@@ -30,7 +30,7 @@ Podman is an advanced, daemon-less container engine that offers a secure and eff
 
 HashiCorp Nomad is a flexible, enterprise-grade scheduler that can deploy and manage applications in single-node, multi-node, and multi-cluster environments. It efficiently handles containerized, non-containerized, and batch applications together. Easy to deploy and use with a single binary, it integrates well with other HashiCorp tools described in this tutorial, such as Consul and Vault, for service discovery and secrets management.
 
-## Why Bilú?
+## Acknowledgment: Why Bilú?
 
 Bilú Gabriel was the late companion dog of the author's family, a Belgian Shepherd. It lived a long life of 14 years and 3 months. His family loved him so much and still continues to love him. This server will go to production with his name on it as a tribute to him.
 
