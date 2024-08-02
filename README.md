@@ -2,6 +2,8 @@
 
 This tutorial provides a step-by-step guide for setting up Rocky Linux 9 on a Hostinger VPS, tailored for staging and small production workloads. It emphasizes balancing security and usability based on best practices, covering essential tasks such as user management, system updates, and initial setup. Additionally, it includes the configuration of several services through containers using Podman and HashiCorp Nomad as the container orchestration tool.
 
+**Disclaimer**: This guide reflects my specific needs, knowledge, and experience. Individual user requirements may necessitate additional configurations.
+
 ## Prerequisites
 
 Before starting this tutorial, ensure you have the following:
@@ -37,8 +39,6 @@ Bilú Gabriel was the late companion dog of the author's family, a Belgian Sheph
 ## What Hostinger VPS plan is used?
 
 The Hostinger VPS plan used in the live run of this tutorial is a KVM 8 plan, which, in a nutshell, is a 32GB RAM, 400GB DISK and 8 vCPUs VM. Since it's the highest VPS plan currently available on Hostinger, it provides a reasonable amount of compute power for the type of workloads that will run on the server.
-
-**Disclaimer**: This guide reflects my specific needs, knowledge, and experience. Individual user requirements may necessitate additional configurations.
 
 ## Basic server configuration
 
