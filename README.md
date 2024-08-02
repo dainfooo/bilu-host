@@ -40,6 +40,10 @@ Bilú Gabriel was the late companion dog of the author's family, a Belgian Sheph
 
 The Hostinger VPS plan used in the live run of this tutorial is a KVM 8 plan, which, in a nutshell, is a 32GB RAM, 400GB DISK and 8 vCPUs VM. Since it's the highest VPS plan currently available on Hostinger, it provides a reasonable amount of compute power for the type of workloads that will run on the server.
 
+## Let's begin?
+
+This tutorial will guide you through setting up a robust development environment on Hostinger using Rocky Linux, Podman, and Nomad. By the end of this guide, you'll have a secure and efficient platform ready for your projects. Let's get started!
+
 ## Basic server configuration
 
 This section covers the operating system configuration steps up to the point of installing Coder.
