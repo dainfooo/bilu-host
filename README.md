@@ -203,7 +203,7 @@ client {
   enabled = true
   servers = ["93.127.212.100"]
   host_volume "percona-mysql" {
-    path      = "/opt/percona-mysqll/data"
+    path      = "/opt/percona-mysql/data"
     read_only = false
   }
 }
