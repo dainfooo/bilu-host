@@ -237,7 +237,7 @@ $ sudo chown nomad:nomad /opt/percona-mysql/data
 ```
 
 ```console
-sudo tee /etc/nomad.d/mysql.nomad.hcl <<'EOF'
+sudo tee /etc/nomad.d/percona-mysql.nomad.hcl <<'EOF'
 job "percona-mysql-server" {
   datacenters = ["bilu-dc"]
   type        = "service"
