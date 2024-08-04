@@ -202,6 +202,10 @@ server {
 client {
   enabled = true
   servers = ["93.127.212.100"]
+  host_volume "percona-mysql" {
+    path      = "/opt/percona-mysqll/data"
+    read_only = false
+  }
 }
 
 plugin "nomad-driver-podman" {
@@ -225,6 +229,12 @@ sudo systemctl enable nomad
 sudo systemctl start nomad
 ```
 
+### Installing Percona MySQL Server
+
+```console
+$ sudo mkdir -p /opt/percona-mysql/data
+$ sudo chown nomad:nomad /opt/percona-mysql/data
+```
 
 ### Installing Traefik
 
