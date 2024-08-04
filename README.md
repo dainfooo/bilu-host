@@ -236,6 +236,73 @@ $ sudo mkdir -p /opt/percona-mysql/data
 $ sudo chown nomad:nomad /opt/percona-mysql/data
 ```
 
+```console
+sudo tee /etc/nomad.d/mysql.nomad.hcl <<'EOF'
+job "percona-mysql-server" {
+  datacenters = ["bilu-dc"]
+  type        = "service"
+
+  group "percona-mysql-server" {
+    count = 1
+
+    volume "percona-mysql" {
+      type      = "host"
+      read_only = false
+      source    = "percona-mysql"
+    }
+
+    network {
+      port "db" {
+        static = 3306
+      }
+    }
+
+    restart {
+      attempts = 10
+      interval = "5m"
+      delay    = "25s"
+      mode     = "delay"
+    }
+
+    task "percona-mysql-server" {
+      driver = "podman"
+
+      volume_mount {
+        volume      = "percona-mysql"
+        destination = "/var/lib/mysql"
+        read_only   = false
+      }
+
+      env = {
+        "MYSQL_ROOT_PASSWORD" = "password"
+      }
+
+      config {
+        image = "docker.io/percona/percona-server:latest"
+        ports = ["db"]
+      }
+
+      resources {
+        cpu    = 2000
+        memory = 2048
+      }
+
+      service {
+        name = "percona-mysql-server"
+        port = "db"
+
+        check {
+          type     = "tcp"
+          interval = "10s"
+          timeout  = "2s"
+        }
+      }
+    }
+  }
+}
+EOF
+```
+
 ### Installing Traefik
 
 Since traefik needs to listen the podman.socker, it's better to install it with the podman user for a more easy set-up. This will be the only service that will share a user, all other services will have it's own user.
